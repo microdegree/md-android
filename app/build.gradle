@@ -9,8 +9,8 @@ android {
         applicationId "org.microdegree.com.app.exp"
         minSdkVersion 19
         targetSdkVersion 32
-        versionCode 107
-        versionName "1.0.7"
+        versionCode 104
+        versionName "1.0.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -34,9 +34,10 @@ android {
         }
         release {
             debuggable false
+
             minifyEnabled true
-            shrinkResources false
-            useProguard false
+            shrinkResources true
+            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

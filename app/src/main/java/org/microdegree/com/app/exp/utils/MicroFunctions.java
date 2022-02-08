@@ -24,7 +24,7 @@ import org.microdegree.com.app.exp.ui.course.coursedetail.CourseDetailActivity;
 public class MicroFunctions {
 
     public  void startPayment(CourseModel mCourseModel, Activity context) {
-        Checkout.preload(context);
+
         String str = mCourseModel.getCourseDiscountedPrice().replaceAll("[^\\d.]", "");
 
         /**

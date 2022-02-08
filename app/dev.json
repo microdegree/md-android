@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "900614739759",
+    "firebase_url": "https://md-android-sandbox-default-rtdb.firebaseio.com",
+    "project_id": "md-android-sandbox",
+    "storage_bucket": "md-android-sandbox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900614739759:android:0f5e3876e66cf3241633da",
+        "android_client_info": {
+          "package_name": "org.microdegree.com.app.exp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900614739759-dmq5ikis83f9v33serrjg9n27s8oqpni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.microdegree.com.app.exp",
+            "certificate_hash": "9270862de301ecd1fa99925f2ee8b89912ec8201"
+          }
+        },
+        {
+          "client_id": "900614739759-khc9551t8gups8ecfvqkmb10cohbsgau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTmNxfAbg6U7tj5MKPmD6XloxjULbcZsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900614739759-khc9551t8gups8ecfvqkmb10cohbsgau.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

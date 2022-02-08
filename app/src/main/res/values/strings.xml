@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Micro Degree</string>
+    <string name="get_started">Get Started</string>
+
+    <string name="skip">Skip</string>
+    <string name="label_name">Name*</string>
+    <string name="label_mobile">Phone Number*</string>
+    <string name="label_email">Email*</string>
+    <string name="label_referral">Referral Code</string>
+    <string name="label_password">Password</string>
+    <string name="action_login">Login</string>
+    <string name="action_submit">Submit</string>
+    <string name="error_format_invalid">Email Format Invalid</string>
+    <string name="error_too_short">Password Too Short</string>
+    <string name="please_enter_details">Please Enter Your Details</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_course">My Courses</string>
+    <string name="title_more">More</string>
+    <string name="my_goal">My Goal</string>
+    <string name="quiz">Quiz</string>
+    <string name="test_and_hackathon">Test and Hackathon</string>
+    <string name="refer_and_earn">Refer and Earn</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="redeem_now">Redeem Now</string>
+    <string name="about_us">About Us</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="credits">Credits</string>
+    <string name="enquire_now">Enquire Now</string>
+    <string name="amount">Amount</string>
+    <string name="cancel">Cancel</string>
+
+
+
+    <string name="log_token">Log Token</string>
+
+    <string name="msg_token_fmt" translatable="false">FCM registration Token: %s</string>
+
+    <string name="default_notification_channel_id" translatable="false">1</string>
+    <string name="default_notification_channel_name" translatable="false">Miscelleneous</string>
+
+    <string name="fcm_message">FCM Message</string>
+
+</resources>

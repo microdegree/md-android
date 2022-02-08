@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingRight="?android:attr/expandableListPreferredChildPaddingLeft"
+
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txt_goal"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp" />
+
+    <TextView
+        android:layout_below="@id/txt_goal"
+        android:id="@+id/txt_objective"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_width="fill_parent"
+        android:text="Objectives:"
+        android:layout_height="wrap_content"
+        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" />
+
+
+    <LinearLayout
+        android:layout_marginLeft="40dp"
+        android:orientation="vertical"
+        android:layout_below="@id/txt_objective"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutObj"/>
+
+
+    <TextView
+        android:layout_below="@id/layoutObj"
+        android:id="@+id/txt_topic"
+        android:text="Topics: "
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" />
+
+    <LinearLayout
+        android:layout_marginLeft="40dp"
+        android:orientation="vertical"
+        android:layout_below="@id/txt_topic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutTopic"/>
+
+
+    <TextView
+        android:layout_below="@id/layoutTopic"
+        android:id="@+id/txt_handson"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="HandsOn: "
+        android:textSize="16sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" />
+
+
+    <LinearLayout
+        android:layout_marginLeft="40dp"
+        android:orientation="vertical"
+        android:layout_below="@id/txt_handson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutHandson"/>
+
+
+</RelativeLayout>

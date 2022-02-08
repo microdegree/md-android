@@ -1,0 +1,123 @@
+<RelativeLayout
+    android:background="@color/white"
+    android:paddingTop="5dp"
+    android:paddingLeft="5dp"
+    android:layout_marginBottom="12dp"
+    android:paddingRight="5dp"
+    android:layout_marginRight="10dp"
+    android:paddingBottom="5dp"
+    android:id="@+id/parentRelative"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/round_outline" />
+
+    <LinearLayout
+        android:id="@+id/base_lay"
+        android:layout_toRightOf="@id/image"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginBottom="4dp"
+            android:id="@+id/txt_title"
+            android:gravity="start"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="17sp"
+            android:textColor="#2b2b2b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/txt_timing"
+            android:gravity="start"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:textSize="15sp"
+            android:maxLines="1"
+            android:textColor="#6b6b6b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/txt_session"
+            android:gravity="start"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#6b6b6b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="start"
+                android:textStyle="bold"
+                android:id="@+id/enroll"
+                android:text="Enroll For"
+                android:layout_gravity="center"
+                android:textSize="15sp"
+                android:textColor="@color/sky_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="2dp"
+            android:id="@+id/txt_price"
+            android:gravity="start"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="15sp"
+            android:textColor="@color/sky_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginLeft="2dp"
+                android:id="@+id/txt_dsc_price"
+                android:gravity="start"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textSize="15sp"
+                android:textColor="@color/sky_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>

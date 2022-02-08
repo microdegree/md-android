@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".ui.intro.IntroActivity">
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:background="@color/white"
+        android:id="@+id/pager_introduction"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/viewPagerCountDots" />
+
+    <LinearLayout
+        android:id="@+id/viewPagerCountDots"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:layout_above="@+id/btn_get_started"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:orientation="horizontal" />
+
+    <Button
+        android:id="@+id/btn_get_started"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:text="@string/get_started"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
+
+</RelativeLayout>

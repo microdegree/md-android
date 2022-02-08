@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".ui.bottomnav.BottomNavigation">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:background="@drawable/bordered"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="50dp"
+                app:cardBackgroundColor="@color/white"
+                android:elevation="10dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                >
+                <ImageView
+                    android:padding="15dp"
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:src="@drawable/logo_hor"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/quiz"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:id="@+id/quiz"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:textSize="17sp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:text="@string/quiz"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:background="@drawable/gradient_bordered_button"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Coming Soon"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/grey"
+            />
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/t_c"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:id="@+id/test"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="0dp"
+                android:textSize="17sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:text="@string/test_and_hackathon"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:background="@drawable/gradient_bordered_button"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Coming Soon"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:onClick="onClickRefer"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/refer"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:id="@+id/blog"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="0dp"
+                android:textSize="17sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:text="@string/refer_and_earn"
+                android:textColor="@color/black" />
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:onClick="onClickContact"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/contact"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:id="@+id/contact"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="0dp"
+                android:textSize="17sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:text="@string/contact_us"
+                android:textColor="@color/black" />
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:onClick="onClickSubscribe"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/subscribe"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:id="@+id/subscribe"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="0dp"
+                android:textSize="17sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:text="Subscribe To Pro"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/grey"
+            />
+
+        <LinearLayout
+            android:onClick="onClickAbout"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/about"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/about_us"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:onClick="onClickTerms"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/t_c"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:id="@+id/terms"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:textSize="17sp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:text="@string/terms_and_conditions"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:onClick="onClickCredit"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/t_c"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:id="@+id/credit"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:textSize="17sp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:text="@string/credits"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginBottom="110dp"
+            android:onClick="onClickContact"
+            android:id="@+id/enquiry"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/gradient_bordered"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center"
+                app:tint="@color/white"
+                android:src="@drawable/ic_baseline_call_24"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:layout_height="50dp"
+                android:text="Enquire Now"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    </ScrollView>
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="org.microdegree.com.app.exp.ui.signin.SignInViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:paddingBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+        android:id="@+id/sign_up"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        tools:context=".ui.signin.SignInActivity">
+
+
+              <LinearLayout
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:background="@drawable/bordered"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="50dp"
+                app:cardBackgroundColor="@color/white"
+                android:elevation="10dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                >
+            <ImageView
+                android:padding="15dp"
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:src="@drawable/logo_hor"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+            <View
+            android:layout_width="match_parent"
+            android:background="#fafafa"
+            android:layout_height="5dp"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="70dp"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                tools:context=".ui.signin.SignInActivity">
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#5e5e5e"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/please_enter_details"/>
+
+
+                    <LinearLayout
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:background="@drawable/bordered"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/sky_blue"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/label_name"/>
+
+                        <EditText
+                            android:id="@+id/txtName"
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="@color/edit_text_color"
+                            android:background="@null"
+                            android:ems="10"
+                            android:inputType="textNoSuggestions|text"
+                            android:text="@={model.signIn.fields.name}"
+                            app:error="@{model.signIn.nameError}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:onFocus="@{model.getNameOnFocusChangeListener()}" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_marginTop="25dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:background="@drawable/bordered"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/sky_blue"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/label_mobile"/>
+
+                        <EditText
+                            android:id="@+id/txtMobile"
+                            android:maxLength="10"
+                            android:layout_width="match_parent"
+                            android:textColor="@color/edit_text_color"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:inputType="textNoSuggestions|number"
+                            android:text="@={model.signIn.fields.mobile}"
+                            app:error="@{model.signIn.mobileError}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:onFocus="@{model.getMobileOnFocusChangeListener()}" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_marginTop="25dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:background="@drawable/bordered"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/sky_blue"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/label_email"/>
+
+                        <EditText
+                            android:id="@+id/txtEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:textColor="@color/edit_text_color"
+                            android:layout_marginTop="3dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:inputType="textNoSuggestions|textEmailAddress"
+                            android:text="@={model.signIn.fields.email}"
+                            app:error="@{model.signIn.emailError}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:onFocus="@{model.getEmailOnFocusChangeListener()}" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_marginTop="25dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:background="@drawable/bordered"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/sky_blue"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/label_referral"/>
+
+                        <EditText
+                            android:id="@+id/txtRefer"
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:textColor="@color/edit_text_color"
+                            android:layout_marginTop="3dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:inputType="textNoSuggestions|text"
+                            android:text="@={model.signIn.fields.referral}"
+                            app:error="@{model.signIn.referralError}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:onFocus="@{model.getReferralOnFocusChangeListener()}" />
+
+
+                    </LinearLayout>
+
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/skip"
+                    android:layout_gravity="right"
+                    android:padding="10dp"
+                    android:textSize="15sp"
+                    android:textColor="#5D5E5E"
+                    android:textAllCaps="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/skip" />
+
+        </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/layout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:onClick="@{() -> model.onButtonClick()}"
+                android:background="@drawable/corner_min"
+                android:backgroundTint="#1d8bf6"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:textAllCaps="true"
+                android:paddingBottom="5dp"
+                android:text="@string/action_submit"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/txt_subtitle"
+                android:layout_width="match_parent"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_height="50dp"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+</layout>

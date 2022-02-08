@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/drawable-v24/empty.xml" value="0.2484375" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/drawable/def_banner.xml" value="0.39692307692307693" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/drawable/round_outline.xml" value="0.32395833333333335" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/drawable/round_outline_low.xml" value="0.32395833333333335" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/activity_app_intro.xml" value="0.18363728470111448" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/activity_course_detail.xml" value="0.18363728470111448" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/activity_courses.xml" value="0.16" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/activity_intro.xml" value="0.25" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/activity_signin.xml" value="0.33" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/banner_layout.xml" value="0.5" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/category_search_layout.xml" value="0.33" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/course_layout.xml" value="0.5846994535519126" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/fragment_more.xml" value="0.25" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/fragment_overview.xml" value="0.33" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/fragment_search.xml" value="0.25" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/highlight_layout.xml" value="0.33" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/intro_layout_one.xml" value="0.4463350785340314" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/intro_layout_three.xml" value="0.4463350785340314" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/intro_layout_two.xml" value="0.3160333642261353" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/layout_image.xml" value="0.23229166666666667" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/notifications_layout.xml" value="0.5" />
+        <entry key="..\:/Android Projects/MicroDegree/app/src/main/res/layout/slides_layout.xml" value="0.22" />
+        <entry key="..\:/New folder (2)/android-prod-jan22-v1-master/app/src/main/res/layout/intro_layout_one.xml" value="0.10989583333333333" />
+        <entry key="..\:/New folder (2)/android-prod-jan22-v1-master/app/src/main/res/layout/intro_layout_three.xml" value="0.10989583333333333" />
+        <entry key="..\:/New folder (2)/android-prod-jan22-v1-master/app/src/main/res/layout/intro_layout_two.xml" value="0.10989583333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

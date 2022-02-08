@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:id="@+id/header"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <ImageView
+
+                android:paddingRight="70dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:id="@+id/headerImage"
+                android:src="@drawable/logo_hor"
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"/>
+
+            <ImageView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/telegram"
+                android:layout_gravity="center"
+                android:src="@drawable/telegram"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/call"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_call_24"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                app:tint="#080808" />
+            <ImageView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/notifications"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_notifications_24"
+                android:layout_width="0dp"
+                app:tint="#080808"
+                android:layout_height="30dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+
+        <ScrollView
+            android:layout_below="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/parentRelative"
+                android:background="#f2f3f7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+
+                <RelativeLayout
+                    android:paddingTop="10dp"
+                    android:paddingBottom="30dp"
+                    android:paddingLeft="20dp"
+                    android:background="@color/white"
+                    android:id="@+id/storyView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recyclerViewStory"/>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/bannerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/storyView"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewBanner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:paddingLeft="20dp"
+                    android:background="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="30dp"
+                    android:id="@+id/categoryPopularView"
+                    android:layout_below="@+id/bannerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginBottom="10dp"
+                        android:text="Popular Categories"
+                        android:id="@+id/txt_pcat"
+                        android:textSize="20sp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/medgrey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_below="@id/txt_pcat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recyclerViewPopularCategory"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:paddingLeft="20dp"
+                    android:background="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:id="@+id/liveView"
+                    android:layout_below="@+id/categoryPopularView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginBottom="10dp"
+                        android:text="Live Courses"
+                        android:id="@+id/txt_lcat"
+                        android:textSize="20sp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/medgrey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_below="@id/txt_lcat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recyclerViewlive"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:paddingLeft="20dp"
+                    android:background="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:id="@+id/selfBasedView"
+                    android:layout_below="@+id/liveView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginBottom="10dp"
+                        android:text="Pre-Recorded Courses"
+                        android:id="@+id/txt_sbcat"
+                        android:textSize="20sp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/medgrey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_below="@id/txt_sbcat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recyclerViewSelfBased"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:paddingLeft="20dp"
+                    android:background="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:id="@+id/categoryExpView"
+                    android:layout_below="@+id/selfBasedView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginBottom="10dp"
+                        android:text="Categories By Experience"
+                        android:id="@+id/txt_ecat"
+                        android:textSize="20sp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/medgrey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_below="@id/txt_ecat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recyclerViewExpCategory"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:paddingLeft="20dp"
+                    android:background="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:id="@+id/jobView"
+                    android:layout_below="@+id/categoryExpView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginBottom="10dp"
+                        android:text="Try Our Free Courses"
+                        android:id="@+id/txt_jcourse"
+                        android:textSize="20sp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/medgrey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_below="@id/txt_jcourse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recyclerViewJob"/>
+
+                </RelativeLayout>
+
+
+
+
+
+
+
+
+                <RelativeLayout
+                    android:paddingLeft="20dp"
+                    android:layout_below="@id/jobView"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:id="@+id/successView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_marginBottom="10dp"
+                        android:text="Learner Success Stories"
+                        android:id="@+id/txt_success"
+                        android:textSize="20sp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/medgrey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:paddingTop="10dp"
+                            android:layout_below="@id/txt_success"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/recyclerViewSuccess"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:background="@color/white"
+                    android:paddingTop="40dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:paddingBottom="40dp"
+                    android:id="@+id/aboutView"
+                    android:layout_below="@+id/successView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginBottom="10dp"
+                        android:text="About MicroDegree"
+                        android:id="@+id/txt_about"
+                        android:textSize="20sp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/medgrey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <RelativeLayout
+                        android:paddingTop="10dp"
+                        android:background="@drawable/cylinder"
+                        android:layout_below="@+id/txt_about"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ic_baseline_play_arrow_24"
+                                android:layout_height="50dp"
+                                app:tint="@color/white" />
+                        </RelativeLayout>
+                        <com.pierfrancescosoffritti.androidyoutubeplayer.player.YouTubePlayerView
+                            android:id="@+id/youtube_player_view_2"
+                            android:layout_width="match_parent"
+                            android:visibility="gone"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+               </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</FrameLayout>

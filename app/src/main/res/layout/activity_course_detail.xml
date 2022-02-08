@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.course.coursedetail.CourseDetailActivity">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/parentRelative"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <com.pierfrancescosoffritti.androidyoutubeplayer.player.YouTubePlayerView
+            android:id="@+id/youtube_player_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_below="@+id/parentRelative"
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        app:tabIndicatorColor="@color/medgrey"
+        android:layout_height="wrap_content"
+        style="@style/TabLayoutTextStyle"
+        android:background="@color/white">
+    </com.google.android.material.tabs.TabLayout>
+
+    <view class="org.microdegree.com.app.exp.ui.course.coursedetail.CourseDetailActivity$FCViewPager"
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="80dp"
+
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabLayout"
+        tools:layout_editor_absoluteX="8dp" />
+
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:background="#002333"
+        android:gravity="center"
+        android:layout_below="@+id/hightlightsView"
+        android:layout_width="match_parent"
+        android:id="@+id/razorpayView"
+        android:layout_height="60dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/payment"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/corner_min"
+            android:backgroundTint="#01ff85"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:text="Enroll Now"
+                android:textColor="#002333" />
+        </LinearLayout>
+<!--        <TextView-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="As a free user,you can only preview the first lesson"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_weight="6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/back"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

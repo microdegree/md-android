@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.bottomnav.BottomNavigation">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:background="#f2f3f7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_marginBottom="10dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:id="@+id/header"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_title"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/recyclerViewSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_subtitle"
+                    android:nestedScrollingEnabled="true" />
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@color/white"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                    android:layout_below="@+id/header"
+                    android:id="@+id/hightlightsView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:nestedScrollingEnabled="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recyclerViewHighlights"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_below="@+id/hightlightsView"
+                    android:background="@color/white"
+                    android:id="@+id/preRequisitiesView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:paddingTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="20dp"
+                        android:textStyle="bold"
+                        android:id="@+id/txt_pretitle"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_below="@+id/txt_pretitle"
+                        android:nestedScrollingEnabled="true"
+                        android:id="@+id/recyclerViewPre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/preImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/recyclerViewPre"
+                    android:layout_centerInParent="true"
+                    android:background="@color/white"
+                    android:paddingTop="10dp" />
+
+
+                </RelativeLayout>
+
+    </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</FrameLayout>

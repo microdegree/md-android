@@ -1,0 +1,29 @@
+<RelativeLayout
+    android:padding="10dp"
+    android:id="@+id/parentRelative"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:src="@drawable/md_sq_logo"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"/>
+
+    <TextView
+        android:layout_below="@id/image"
+        android:id="@+id/txt_title"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:padding="2dp"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

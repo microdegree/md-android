@@ -56,7 +56,7 @@ public class CourseDetailActivity extends AppCompatActivity  implements PaymentR
             if(mCourseModel.getIsFree().equals("1")){
                 new MicroFunctions().launchWeb(mCourseModel.getCourseWebPageUrl(),getApplicationContext());
             }else{
-                new MicroFunctions().startPayment(mCourseModel, CourseDetailActivity.this);
+                new MicroFunctions().launchWeb(mCourseModel.getTargetPage(),getApplicationContext());
             }
         });
 

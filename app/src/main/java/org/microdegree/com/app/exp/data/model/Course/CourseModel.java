@@ -36,8 +36,26 @@ public class CourseModel {
     String isFree;
     String lastModifiedBy;
     String lastModifiedTimestamp;
+    String targetPage;
+    String targetPageType;
     public CourseModel(){
 
+    }
+
+    public String getTargetPage() {
+        return targetPage;
+    }
+
+    public void setTargetPage(String targetPage) {
+        this.targetPage = targetPage;
+    }
+
+    public String getTargetPageType() {
+        return targetPageType;
+    }
+
+    public void setTargetPageType(String targetPageType) {
+        this.targetPageType = targetPageType;
     }
 
     public int getId() {

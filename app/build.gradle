@@ -9,8 +9,8 @@ android {
         applicationId "org.microdegree.com.app.exp"
         minSdkVersion 19
         targetSdkVersion 32
-        versionCode 104
-        versionName "1.0.4"
+        versionCode 116
+        versionName "1.1.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -45,6 +45,8 @@ import java.util.List;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
+import io.sentry.Sentry;
+
 public class Home extends Fragment implements StoryListener, BannerListener {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -94,7 +96,6 @@ public class Home extends Fragment implements StoryListener, BannerListener {
         // Inflate the layout for this fragment
         view=inflater.inflate(R.layout.fragment_home, container, false);
 
-        initYoutube();
 
         ImageView notifications = view.findViewById(R.id.notifications);
 
@@ -158,22 +159,28 @@ public class Home extends Fragment implements StoryListener, BannerListener {
         }
     }
     private void initYoutube() {
-        ImageView imageView = view.findViewById(R.id.imageView);
-        String videoId = "_axHfJcVKaM";
-        String url = "https://img.youtube.com/vi/"+videoId+"/0.jpg";
-        Glide.with(getContext())
-                .load(url)
-                .fitCenter()
-                .error(R.drawable.def_course)
-                .centerCrop()
-                .into(imageView);
 
-        imageView.setOnClickListener(view -> {
-            Intent intent = new Intent(getContext(), YoutubeActivity.class);
-            intent.putExtra("data", videoId);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-        });
+        try {
+
+            ImageView imageView = view.findViewById(R.id.imageView);
+            String videoId = "_axHfJcVKaM";
+            String url = "https://img.youtube.com/vi/" + videoId + "/0.jpg";
+            Glide.with(getContext())
+                    .load(url)
+                    .fitCenter()
+                    .error(R.drawable.def_course)
+                    .centerCrop()
+                    .into(imageView);
+
+            imageView.setOnClickListener(view -> {
+                Intent intent = new Intent(getContext(), YoutubeActivity.class);
+                intent.putExtra("data", videoId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            });
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
     }
 
     @Override
@@ -188,6 +195,8 @@ public class Home extends Fragment implements StoryListener, BannerListener {
         initCourseList();
 
         initSuccessList();
+
+        initYoutube();
     }
 
     private void initSelfBased() {
@@ -306,24 +315,25 @@ public class Home extends Fragment implements StoryListener, BannerListener {
 
     }
 
-
     private void initStories() {
-        RecyclerView recyclerViewStory = view.findViewById(R.id.recyclerViewStory);
-        AppController.getHomeViewModel().getStoryModels().observe(getViewLifecycleOwner(), items -> {
-            storyList.clear();
-            storyList.addAll(items);
+        try {
+            RecyclerView recyclerViewStory = view.findViewById(R.id.recyclerViewStory);
+            AppController.getHomeViewModel().getStoryModels().observe(getViewLifecycleOwner(), items -> {
+                if (items != null) {
+                    storyList.clear();
+                    storyList.addAll(items);
+                }
+                StoriesAdapter mStoryAdapter = new StoriesAdapter(storyList, getActivity(), Home.this);
+                recyclerViewStory.setAdapter(mStoryAdapter);
+            });
 
 
-
-            StoriesAdapter  mStoryAdapter = new StoriesAdapter(storyList, getActivity(),Home.this);
-            recyclerViewStory.setAdapter(mStoryAdapter);
-        });
-
-
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewStory.setLayoutManager(linearLayoutManager);
-        recyclerViewStory.setHasFixedSize(true);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+            recyclerViewStory.setLayoutManager(linearLayoutManager);
+            recyclerViewStory.setHasFixedSize(true);
+        }catch(Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
     }
 
     private void initBanners() {
@@ -392,9 +402,6 @@ public class Home extends Fragment implements StoryListener, BannerListener {
 
         });
     }
-
-
-
 
     private void setWeb(String url) {
         new MicroFunctions().launchWeb(url,getContext());

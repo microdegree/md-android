@@ -144,6 +144,9 @@
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
 
-
+        <meta-data android:name="io.sentry.dsn" android:value="https://de4bb4d3a0184f14b1aac5c0b357048f@o1152006.ingest.sentry.io/6229733" />
+        <!-- Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+           We recommend adjusting this value in production. -->
+        <meta-data android:name="io.sentry.traces.sample-rate" android:value="1.0" />
     </application>
 </manifest>

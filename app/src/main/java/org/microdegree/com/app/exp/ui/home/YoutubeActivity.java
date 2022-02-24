@@ -24,6 +24,8 @@ import org.microdegree.com.app.exp.ui.course.coursedetail.viewmodels.CurriculumV
 import org.microdegree.com.app.exp.ui.intro.AppIntroActivity;
 import org.microdegree.com.app.exp.ui.notification.NotificationViewModel;
 
+import io.sentry.Sentry;
+
 
 public class YoutubeActivity extends AppCompatActivity {
 
@@ -34,16 +36,19 @@ public class YoutubeActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_youtube);
-        String  data = getIntent().getStringExtra("data");
-        YouTubePlayerView  youtube_player_view = findViewById(R.id.youtube_player_view);
+        try {
+            String data = getIntent().getStringExtra("data");
+            YouTubePlayerView youtube_player_view = findViewById(R.id.youtube_player_view);
 
             youtube_player_view.initialize(initializedYouTubePlayer -> initializedYouTubePlayer.addListener(new AbstractYouTubePlayerListener() {
-            @Override
-            public void onReady() {
-                initializedYouTubePlayer.loadVideo(data,0);
-            }
-        }), true);
-
+                @Override
+                public void onReady() {
+                    initializedYouTubePlayer.loadVideo(data, 0);
+                }
+            }), true);
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
 
     }
 }

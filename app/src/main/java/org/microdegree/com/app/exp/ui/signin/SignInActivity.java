@@ -29,6 +29,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
+import io.sentry.Sentry;
+
 
 public class SignInActivity extends  AppCompatActivity {
     private SignInViewModel viewModel;
@@ -52,13 +54,17 @@ public class SignInActivity extends  AppCompatActivity {
     }
 
     private void setupBindings(Bundle savedInstanceState) {
-        ActivitySigninBinding activityBinding = DataBindingUtil.setContentView(this, R.layout.activity_signin);
-        viewModel = ViewModelProviders.of(this).get(SignInViewModel.class);
-        if (savedInstanceState == null) {
-            viewModel.init();
+        try {
+            ActivitySigninBinding activityBinding = DataBindingUtil.setContentView(this, R.layout.activity_signin);
+            viewModel = ViewModelProviders.of(this).get(SignInViewModel.class);
+            if (savedInstanceState == null) {
+                viewModel.init();
+            }
+            activityBinding.setModel(viewModel);
+            setupButtonClick();
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
         }
-        activityBinding.setModel(viewModel);
-        setupButtonClick();
     }
 
     private void setupButtonClick() {

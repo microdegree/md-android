@@ -35,7 +35,7 @@ import org.microdegree.com.app.exp.data.model.TestimonialModel;
         TopicModel.class,
         TestimonialModel.class,
         ObjectiveModel.class,
-        HandsonModel.class}, version = 1, exportSchema = false)
+        HandsonModel.class}, version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract BannerDao  bannerDao();
 

@@ -27,6 +27,8 @@ import org.microdegree.com.app.exp.R;
 import org.microdegree.com.app.exp.data.model.Course.CourseModel;
 import org.microdegree.com.app.exp.utils.MicroFunctions;
 
+import io.sentry.Sentry;
+
 public class CourseDetailActivity extends AppCompatActivity  implements PaymentResultListener {
     TabLayout tabLayout;
     FCViewPager viewPager;
@@ -115,6 +117,7 @@ public class CourseDetailActivity extends AppCompatActivity  implements PaymentR
             }), true);
         }catch (Exception e){
             FirebaseCrashlytics.getInstance().recordException(e);
+            Sentry.captureMessage(String.valueOf(e));
         }
     }
     public static class FCViewPager extends ViewPager {

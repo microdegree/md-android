@@ -34,6 +34,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.sentry.Sentry;
+
 
 public class CourseActivity extends AppCompatActivity {
     private CourseAdapter  mCourseAdapter;
@@ -73,15 +75,20 @@ public class CourseActivity extends AppCompatActivity {
                 public void onChanged(@Nullable List<CourseModel> items) {
                     mCourseList.clear();
 
-                    if(items.size()>0){
-                        no_courses.setVisibility(View.GONE);
-                        recyclerViewCourses.setVisibility(View.VISIBLE);
-                        mCourseList.addAll(items);
-                        mCourseAdapter = new CourseAdapter(mCourseList, getApplicationContext(),false,header,0);
-                        recyclerViewCourses.setAdapter(mCourseAdapter);
-                    }else{
-                        no_courses.setVisibility(View.VISIBLE);
-                        recyclerViewCourses.setVisibility(View.GONE);
+                    try {
+                        assert items != null;
+                        if (items.size() > 0) {
+                            no_courses.setVisibility(View.GONE);
+                            recyclerViewCourses.setVisibility(View.VISIBLE);
+                            mCourseList.addAll(items);
+                            mCourseAdapter = new CourseAdapter(mCourseList, getApplicationContext(), false, header, 0);
+                            recyclerViewCourses.setAdapter(mCourseAdapter);
+                        } else {
+                            no_courses.setVisibility(View.VISIBLE);
+                            recyclerViewCourses.setVisibility(View.GONE);
+                        }
+                    }catch (Exception e){
+                        Sentry.captureMessage(String.valueOf(e));
                     }
                 }
             });

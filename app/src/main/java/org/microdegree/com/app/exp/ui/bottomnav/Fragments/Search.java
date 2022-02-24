@@ -30,6 +30,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import io.sentry.Sentry;
+
 public class Search extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -132,75 +134,78 @@ public class Search extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerViewCourse.setLayoutManager(linearLayoutManager);
         recyclerViewCourse.setHasFixedSize(true);
-        AppController.getCourseViewModel().getCourseModels().observe(getViewLifecycleOwner(), items -> {
+        try {
+            AppController.getCourseViewModel().getCourseModels().observe(getViewLifecycleOwner(), items -> {
 
-            if(items.size()>0) {
+                if (items.size() > 0) {
                     mCourseList.clear();
                     mCourseList.addAll(items);
 
-            }
-        });
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                List<String> unqString=new ArrayList<>();
-                List<CourseModel> list = new ArrayList<>();
-                for (CourseModel item : mCourseList) {
-
-                    if (item.getCourseTitle().toLowerCase().contains(query.toLowerCase())) {
-
-                        if(!unqString.contains(item.getCourseId())){
-                            unqString.add(item.getCourseId());
-                             list.add(item);
-                        }
-                    }
                 }
+            });
 
-                if(list.size()>0){
-                    CourseAdapter  mCourseAdapter = new CourseAdapter(list, getContext(),false,"",0);
-                    recyclerViewCourse.setAdapter(mCourseAdapter);
-                    layout.setVisibility(View.VISIBLE);
-                    allView.setVisibility(View.GONE);
-                }
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String query) {
-                List<String> unqString=new ArrayList<>();
-
-                if(query.length()>1){
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    List<String> unqString = new ArrayList<>();
                     List<CourseModel> list = new ArrayList<>();
                     for (CourseModel item : mCourseList) {
 
                         if (item.getCourseTitle().toLowerCase().contains(query.toLowerCase())) {
 
-                            if(!unqString.contains(item.getCourseTitle())){
-                                unqString.add(item.getCourseTitle());
+                            if (!unqString.contains(item.getCourseId())) {
+                                unqString.add(item.getCourseId());
                                 list.add(item);
                             }
                         }
                     }
 
-
-
-                    if(list.size()>0){
-                        CourseAdapter  mCourseAdapter = new CourseAdapter(list, getContext(),false,"",0);
+                    if (list.size() > 0) {
+                        CourseAdapter mCourseAdapter = new CourseAdapter(list, getContext(), false, "", 0);
                         recyclerViewCourse.setAdapter(mCourseAdapter);
                         layout.setVisibility(View.VISIBLE);
                         allView.setVisibility(View.GONE);
                     }
 
-                }else{
-                    layout.setVisibility(View.GONE);
-                    allView.setVisibility(View.VISIBLE);
+                    return false;
                 }
 
-                return false;
-            }
-        });
+                @Override
+                public boolean onQueryTextChange(String query) {
+                    List<String> unqString = new ArrayList<>();
+
+                    if (query.length() > 1) {
+                        List<CourseModel> list = new ArrayList<>();
+                        for (CourseModel item : mCourseList) {
+
+                            if (item.getCourseTitle().toLowerCase().contains(query.toLowerCase())) {
+
+                                if (!unqString.contains(item.getCourseTitle())) {
+                                    unqString.add(item.getCourseTitle());
+                                    list.add(item);
+                                }
+                            }
+                        }
+
+
+                        if (list.size() > 0) {
+                            CourseAdapter mCourseAdapter = new CourseAdapter(list, getContext(), false, "", 0);
+                            recyclerViewCourse.setAdapter(mCourseAdapter);
+                            layout.setVisibility(View.VISIBLE);
+                            allView.setVisibility(View.GONE);
+                        }
+
+                    } else {
+                        layout.setVisibility(View.GONE);
+                        allView.setVisibility(View.VISIBLE);
+                    }
+
+                    return false;
+                }
+            });
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
 
     }
 

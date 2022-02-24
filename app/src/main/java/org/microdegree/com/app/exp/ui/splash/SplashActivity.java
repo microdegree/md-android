@@ -33,6 +33,8 @@ import org.microdegree.com.app.exp.ui.notification.NotificationViewModel;
 import java.util.List;
 import java.util.Map;
 
+import io.sentry.Sentry;
+
 
 public class SplashActivity extends AppCompatActivity {
     private AppUpdateManager appUpdateManager;

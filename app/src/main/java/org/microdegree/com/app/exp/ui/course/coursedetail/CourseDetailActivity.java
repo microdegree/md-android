@@ -76,7 +76,7 @@ public class CourseDetailActivity extends AppCompatActivity  implements PaymentR
         tabLayout.addTab(tabLayout.newTab().setText("Curriculum"));
         tabLayout.addTab(tabLayout.newTab().setText("FAQs"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
+        try{
         final CourseDetailAdapter adapter = new CourseDetailAdapter(this,getSupportFragmentManager(), tabLayout.getTabCount(),mCourseModel);
         viewPager.setAdapter(adapter);
 
@@ -99,6 +99,9 @@ public class CourseDetailActivity extends AppCompatActivity  implements PaymentR
 
             }
         });
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
 
     }
     private void initYoutube() {

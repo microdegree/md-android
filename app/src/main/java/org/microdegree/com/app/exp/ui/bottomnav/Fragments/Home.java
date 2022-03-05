@@ -203,14 +203,19 @@ public class Home extends Fragment implements StoryListener, BannerListener {
         RecyclerView recyclerView= view.findViewById(R.id.recyclerViewSelfBased);
         RelativeLayout layout= view.findViewById(R.id.selfBasedView);
         layout.setVisibility(View.GONE);
-        AppController.getCourseViewModel().getSelf().observe(getViewLifecycleOwner(), items -> {
+        try {
+            AppController.getCourseViewModel().getSelf().observe(getViewLifecycleOwner(), items -> {
 
-            if(items.size()>0){
-                layout.setVisibility(View.VISIBLE);
-            }
-            CourseAdapter adapter = new CourseAdapter(items,getContext(),true,"Pre-Recorded",5);
-            recyclerView.setAdapter(adapter);
-        });
+
+                if (items.size() > 0) {
+                    layout.setVisibility(View.VISIBLE);
+                }
+                CourseAdapter adapter = new CourseAdapter(items, getContext(), true, "Pre-Recorded", 5);
+                recyclerView.setAdapter(adapter);
+            });
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -222,6 +227,7 @@ public class Home extends Fragment implements StoryListener, BannerListener {
         RecyclerView recyclerView= view.findViewById(R.id.recyclerViewlive);
         RelativeLayout layout= view.findViewById(R.id.liveView);
         layout.setVisibility(View.GONE);
+        try{
         AppController.getCourseViewModel().getLive().observe(getViewLifecycleOwner(), items -> {
             if(items.size()>0){
                 layout.setVisibility(View.VISIBLE);
@@ -229,7 +235,9 @@ public class Home extends Fragment implements StoryListener, BannerListener {
             CourseAdapter adapter = new CourseAdapter(items,getContext(),true,"Live Courses",5);
             recyclerView.setAdapter(adapter);
         });
-
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
@@ -239,6 +247,7 @@ public class Home extends Fragment implements StoryListener, BannerListener {
         RecyclerView recyclerView= view.findViewById(R.id.recyclerViewJob);
         RelativeLayout layout= view.findViewById(R.id.jobView);
         layout.setVisibility(View.GONE);
+        try{
         AppController.getCourseViewModel().getFree().observe(getViewLifecycleOwner(), items -> {
 
         if(items.size()>0){
@@ -247,7 +256,9 @@ public class Home extends Fragment implements StoryListener, BannerListener {
             CourseAdapter adapter = new CourseAdapter(items,getContext(),true,"Free Courses",5);
             recyclerView.setAdapter(adapter);
         });
-
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
@@ -257,6 +268,7 @@ public class Home extends Fragment implements StoryListener, BannerListener {
         RecyclerView recyclerView= view.findViewById(R.id.recyclerViewPopularCategory);
         RelativeLayout layout= view.findViewById(R.id.categoryPopularView);
         layout.setVisibility(View.GONE);
+        try{
         AppController.getHomeViewModel().getPopularCategoryModels().observe(getViewLifecycleOwner(), items -> {
 
             if(items.size()>0){
@@ -265,7 +277,9 @@ public class Home extends Fragment implements StoryListener, BannerListener {
             CategoryAdapter adapter = new CategoryAdapter(items, getActivity(),"Popular Category");
             recyclerView.setAdapter(adapter);
         });
-
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
@@ -276,6 +290,7 @@ public class Home extends Fragment implements StoryListener, BannerListener {
         RecyclerView recyclerView= view.findViewById(R.id.recyclerViewExpCategory);
         RelativeLayout layout= view.findViewById(R.id.categoryExpView);
         layout.setVisibility(View.GONE);
+        try{
         AppController.getHomeViewModel().getExpCategoryModels().observe(getViewLifecycleOwner(), items -> {
             if(items.size()>0){
                 layout.setVisibility(View.VISIBLE);
@@ -283,24 +298,31 @@ public class Home extends Fragment implements StoryListener, BannerListener {
             CategoryAdapter   adapter = new CategoryAdapter(items, getActivity(),"Category By Experience");
             recyclerView.setAdapter(adapter);
         });
-
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
     }
 
     private void initCourseList() {
+        try{
     AppController.getCourseViewModel().getCourseModels().observe(getViewLifecycleOwner(), items -> {
          initSelfBased();
         initLiveCourses();
         initFreeCourses();
     });
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
     }
 
     private void initSuccessList() {
             RecyclerView recyclerView= view.findViewById(R.id.recyclerViewSuccess);
             RelativeLayout layout= view.findViewById(R.id.successView);
             layout.setVisibility(View.GONE);
+            try{
             AppController.getHomeViewModel().getSuccessModels().observe(getViewLifecycleOwner(), items -> {
                 if(items.size()>0){
                     layout.setVisibility(View.VISIBLE);
@@ -308,7 +330,9 @@ public class Home extends Fragment implements StoryListener, BannerListener {
                 YoutubeAdapter adapter = new YoutubeAdapter(items,getContext());
                 recyclerView.setAdapter(adapter);
             });
-
+            }catch (Exception e){
+                Sentry.captureMessage(String.valueOf(e));
+            }
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
             recyclerView.setLayoutManager(linearLayoutManager);
             recyclerView.setHasFixedSize(true);
@@ -338,23 +362,29 @@ public class Home extends Fragment implements StoryListener, BannerListener {
 
     private void initBanners() {
         RecyclerView  recyclerViewBanner = view.findViewById(R.id.recyclerViewBanner);
+        try{
         AppController.getHomeViewModel().getBannerModels().observe(getViewLifecycleOwner(), items -> {
             BannerAdapter mBannerAdapter = new BannerAdapter(items, getActivity(),Home.this);
             recyclerViewBanner.setAdapter(mBannerAdapter);
 
         });
-
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerViewBanner.setLayoutManager(linearLayoutManager);
         recyclerViewBanner.setHasFixedSize(true);
     }
 
     private void initCategory() {
+        try{
         AppController.getHomeViewModel().getCategoryModels().observe(getViewLifecycleOwner(), items -> {
             initPopularCategory();
             initExpCategory();
         });
-
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
     }
 
 
@@ -392,6 +422,7 @@ public class Home extends Fragment implements StoryListener, BannerListener {
     }
 
     private void getSDK(String courseId) {
+        try{
         AppController.getCourseViewModel().getCourse(courseId).observe(this, items -> {
 
             if(items.size()>0){
@@ -401,6 +432,9 @@ public class Home extends Fragment implements StoryListener, BannerListener {
             }
 
         });
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
     }
 
     private void setWeb(String url) {

@@ -70,12 +70,13 @@ public class CourseActivity extends AppCompatActivity {
             txt_subtitle.setText(mCategoryModel.getCategoryName());
 
             no_courses.setVisibility(View.VISIBLE);
+            try {
             AppController.getCourseViewModel().getCourseFromCat(mCategoryModel.getCategoryId()).observe(this, new Observer<List<CourseModel>>() {
                 @Override
                 public void onChanged(@Nullable List<CourseModel> items) {
                     mCourseList.clear();
 
-                    try {
+
                         assert items != null;
                         if (items.size() > 0) {
                             no_courses.setVisibility(View.GONE);
@@ -87,11 +88,12 @@ public class CourseActivity extends AppCompatActivity {
                             no_courses.setVisibility(View.VISIBLE);
                             recyclerViewCourses.setVisibility(View.GONE);
                         }
-                    }catch (Exception e){
-                        Sentry.captureMessage(String.valueOf(e));
-                    }
+
                 }
             });
+            }catch (Exception e){
+                Sentry.captureMessage(String.valueOf(e));
+            }
 
         }else{
             txt_title.setText("Courses");

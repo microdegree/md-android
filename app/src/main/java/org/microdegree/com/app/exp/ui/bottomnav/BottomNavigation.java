@@ -37,6 +37,8 @@ import org.microdegree.com.app.exp.utils.MicroFunctions;
 
 import java.util.Map;
 
+import io.sentry.Sentry;
+
 public class BottomNavigation extends AppCompatActivity {
 
     @Override
@@ -68,7 +70,7 @@ public class BottomNavigation extends AppCompatActivity {
 
                     // Get new FCM registration token
                     String token = task.getResult();
-                    FirebaseMessaging.getInstance().subscribeToTopic("/topics/all");
+                    FirebaseMessaging.getInstance().subscribeToTopic("all");
                     // Log and toast
                     String msg = getString(R.string.msg_token_fmt, token);
 
@@ -82,10 +84,14 @@ public class BottomNavigation extends AppCompatActivity {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_search, R.id.navigation_courses, R.id.navigation_more )
                 .build();
+        try{
         //Initialize NavController.
         NavController navController = Navigation.findNavController(this, R.id.navHostFragment);
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
         onNewIntent(getIntent()) ;
     }
 

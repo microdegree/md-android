@@ -45,12 +45,18 @@ public class SignInActivity extends  AppCompatActivity {
         setupBindings(savedInstanceState);
 
         TextView skip=findViewById(R.id.skip);
-        skip.setOnClickListener(view -> {
+        try {
+            skip.setOnClickListener(view -> {
+                Intent i = new Intent(getApplicationContext(), BottomNavigation.class);
+                startActivity(i);
+                finish();
+            });
+        }catch (Exception e){
             Intent i = new Intent(getApplicationContext(), BottomNavigation.class);
             startActivity(i);
             finish();
-        });
-
+            Sentry.captureMessage(String.valueOf(e));
+        }
     }
 
     private void setupBindings(Bundle savedInstanceState) {
@@ -68,35 +74,36 @@ public class SignInActivity extends  AppCompatActivity {
     }
 
     private void setupButtonClick() {
-        viewModel.getSignInFields().observe(this, new Observer<SignInFields>() {
-            @Override
-            public void onChanged(SignInFields signInModel) {
+        try{
+        viewModel.getSignInFields().observe(this, signInModel -> {
 
-                //Saving the Students
-                if(signInModel.isErrorFields()){
-                    Toast.makeText(getApplicationContext(),"Please enter all data",
-                            Toast.LENGTH_SHORT).show();
+            //Saving the Students
+            if(signInModel.isErrorFields()){
+                Toast.makeText(getApplicationContext(),"Please enter all data",
+                        Toast.LENGTH_SHORT).show();
 
-                }else{
+            }else{
 
-                    Date currentTime = Calendar.getInstance().getTime();
-                    String rand= random();
-                    signInModel.setId("MCR"+Constants.APP_VERSION+"-"+rand);
-                    signInModel.setCreatedTime(currentTime.toString());
-                    signInModel.setUpdatedTime(currentTime.toString());
+                Date currentTime = Calendar.getInstance().getTime();
+                String rand= random();
+                signInModel.setId("MCR"+Constants.APP_VERSION+"-"+rand);
+                signInModel.setCreatedTime(currentTime.toString());
+                signInModel.setUpdatedTime(currentTime.toString());
 
-                    databaseReference.child(signInModel.getMobile()).setValue(signInModel);
-                    Toast.makeText(getApplicationContext(),"Registered Successfully",
-                            Toast.LENGTH_SHORT).show();
+                databaseReference.child(signInModel.getMobile()).setValue(signInModel);
+                Toast.makeText(getApplicationContext(),"Registered Successfully",
+                        Toast.LENGTH_SHORT).show();
 
-                    Intent i = new Intent(getApplicationContext(), BottomNavigation.class);
-                    startActivity(i);
-                    finish();
-                }
-
-
+                Intent i = new Intent(getApplicationContext(), BottomNavigation.class);
+                startActivity(i);
+                finish();
             }
+
+
         });
+        }catch (Exception e){
+            Sentry.captureMessage(String.valueOf(e));
+        }
     }
     public static String random() {
         Random generator = new Random();

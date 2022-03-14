@@ -69,10 +69,14 @@ public class StoriesActivity extends AppCompatActivity  implements StoriesProgre
 
 
         Gson gson = new Gson();
-        storyList = gson.fromJson(data, new TypeToken<List<StoryModel>>() {}.getType());
+        try{
+            storyList = gson.fromJson(data, new TypeToken<List<StoryModel>>() {}.getType());
+        }catch (Exception e){
+            storyList=new ArrayList<>();
+        }
 
 
-        storiesProgressView = (StoriesProgressView) findViewById(R.id.stories);
+        storiesProgressView =findViewById(R.id.stories);
         storiesProgressView.setStoriesCount(storyList.size());
         storiesProgressView.setStoryDuration(5000L);
         // or

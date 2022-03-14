@@ -51,27 +51,20 @@ public class Why extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    CourseModel mCourseModel;
-    public Why(CourseModel mCourseModel) {
-        this.mCourseModel=mCourseModel;
+    static CourseModel mCourseModel;
+    public Why() {
         // Required empty public constructor
     }
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment Home.
      */
     // TODO: Rename and change types and number of parameters
-    public static Why newInstance(String param1, String param2) {
-        Why fragment = new Why(new CourseModel());
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+    public static Why newInstance(CourseModel model) {
+        Why fragment = new Why();
+        mCourseModel=model;
         return fragment;
     }
     private  View view;

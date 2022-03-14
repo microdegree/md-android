@@ -67,17 +67,21 @@ public class MicroFunctions {
     }
 
     public void fromCourseID(String courseId, Context activity,LifecycleOwner lifecycleOwner) {
-        AppController.getCourseViewModel().getCourse(courseId).observe(lifecycleOwner, items -> {
-             if(items.size()>0){
-                Gson gson = new Gson();
-                // convert your list to json
-                String jsonCartList = gson.toJson(items.get(0));
+        try {
+            AppController.getCourseViewModel().getCourse(courseId).observe(lifecycleOwner, items -> {
+                if (items.size() > 0) {
+                    Gson gson = new Gson();
+                    // convert your list to json
+                    String jsonCartList = gson.toJson(items.get(0));
 
-                Intent intent = new Intent(activity, CourseDetailActivity.class);
-                intent.putExtra("data",jsonCartList);
-                activity.startActivity(intent);
-            }
+                    Intent intent = new Intent(activity, CourseDetailActivity.class);
+                    intent.putExtra("data", jsonCartList);
+                    activity.startActivity(intent);
+                }
 
-        });
+            });
+        }catch (Exception e){
+
+        }
     }
 }

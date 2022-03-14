@@ -43,27 +43,21 @@ public class Overview extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    CourseModel mCourseModel;
-    public Overview(CourseModel mCourseModel) {
+    static CourseModel mCourseModel;
+    public Overview() {
         // Required empty public constructor
-        this.mCourseModel=mCourseModel;
     }
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment Home.
      */
     // TODO: Rename and change types and number of parameters
-    public static Overview newInstance(String param1, String param2) {
-        Overview fragment = new Overview(new CourseModel());
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+    public static Overview newInstance(CourseModel model) {
+        Overview fragment = new Overview();
+        mCourseModel=model;
         return fragment;
     }
 

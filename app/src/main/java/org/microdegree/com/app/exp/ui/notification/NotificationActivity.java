@@ -41,22 +41,27 @@ public class NotificationActivity extends AppCompatActivity {
         back.setOnClickListener(view -> finish());
         TextView no_items = findViewById(R.id.no_items);
         no_items.setVisibility(View.VISIBLE);
-        AppController.getNotificationModelViewModel().getNotificationModels().observe(this, new Observer<List<NotificationModel>>() {
-            @Override
-            public void onChanged(@Nullable List<NotificationModel> items) {
-                mNotificationList.clear();
-                if(items.size()>0){
-                    no_items.setVisibility(View.GONE);
-                    recyclerViewNotifications.setVisibility(View.VISIBLE);
-                    mNotificationList.addAll(items);
-                    mNotificationAdapter = new NotificationAdapter(mNotificationList, getApplicationContext());
-                    recyclerViewNotifications.setAdapter(mNotificationAdapter);
-                }else{
-                    no_items.setVisibility(View.VISIBLE);
-                    recyclerViewNotifications.setVisibility(View.GONE);
+        try {
+            AppController.getNotificationModelViewModel().getNotificationModels().observe(this, new Observer<List<NotificationModel>>() {
+                @Override
+                public void onChanged(@Nullable List<NotificationModel> items) {
+                    mNotificationList.clear();
+                    assert items != null;
+                    if (items.size() > 0) {
+                        no_items.setVisibility(View.GONE);
+                        recyclerViewNotifications.setVisibility(View.VISIBLE);
+                        mNotificationList.addAll(items);
+                        mNotificationAdapter = new NotificationAdapter(mNotificationList, getApplicationContext());
+                        recyclerViewNotifications.setAdapter(mNotificationAdapter);
+                    } else {
+                        no_items.setVisibility(View.VISIBLE);
+                        recyclerViewNotifications.setVisibility(View.GONE);
+                    }
                 }
-            }
-        });
+            });
+        }catch (Exception e){
+
+        }
         initCourses();
     }
     private void initCourses() {

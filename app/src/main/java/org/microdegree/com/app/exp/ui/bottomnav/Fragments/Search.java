@@ -93,10 +93,14 @@ public class Search extends Fragment {
 
     private void initPopular() {
         RecyclerView  recyclerView = view.findViewById(R.id.recyclerViewCategory);
-        AppController.getHomeViewModel().getPopularCategoryModels().observe(getViewLifecycleOwner(), items -> {
-            CategoryTypeAdapter   mCategoryAdapter = new CategoryTypeAdapter(items, getContext(), "Popular Categories",true,5);
-            recyclerView.setAdapter(mCategoryAdapter);
-        });
+        try {
+            AppController.getHomeViewModel().getPopularCategoryModels().observe(getViewLifecycleOwner(), items -> {
+                CategoryTypeAdapter mCategoryAdapter = new CategoryTypeAdapter(items, getContext(), "Popular Categories", true, 5);
+                recyclerView.setAdapter(mCategoryAdapter);
+            });
+        }catch (Exception e){
+
+        }
 
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setHasFixedSize(true);
@@ -108,6 +112,7 @@ public class Search extends Fragment {
         RecyclerView recyclerView= view.findViewById(R.id.recyclerViewExp);
         RelativeLayout layout= view.findViewById(R.id.categoryExpView);
         layout.setVisibility(View.GONE);
+        try{
         AppController.getHomeViewModel().getExpCategoryModels().observe(getViewLifecycleOwner(), items -> {
 
             if(items.size()>0){
@@ -117,7 +122,9 @@ public class Search extends Fragment {
             CategoryAdapter adapter = new CategoryAdapter(items, getActivity(),"Category By Experience");
             recyclerView.setAdapter(adapter);
         });
+        }catch (Exception e){
 
+        }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);

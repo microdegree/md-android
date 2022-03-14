@@ -39,12 +39,6 @@ public class CourseDetailActivity extends AppCompatActivity  implements PaymentR
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_detail);
-        FirebaseAnalytics mFirebaseAnalytics=  FirebaseAnalytics.getInstance(this);
-        Bundle bundle = new Bundle();
-        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, mCourseModel.getCourseId());
-        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME,  mCourseModel.getCourseTitle());
-        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, mCourseModel.getCourseImageUrl());
-        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
         ImageView back = findViewById(R.id.back);
 

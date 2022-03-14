@@ -28,14 +28,11 @@ public class CourseDetailAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                Overview overview = new Overview(mCourseModel);
-                return overview;
+                return Overview.newInstance(mCourseModel);
             case 1:
-                Curriculum curriculum = new Curriculum(mCourseModel);
-                return curriculum;
+                return  Curriculum.newInstance(mCourseModel);
             case 2:
-                Why why = new Why(mCourseModel);
-                return why;
+                return  Why.newInstance(mCourseModel);
             default:
                 return null;
         }

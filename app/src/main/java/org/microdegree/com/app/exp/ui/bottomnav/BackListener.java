@@ -1,6 +1,6 @@
-package org.microdegree.com.app.exp.ui.home.stories;
+package org.microdegree.com.app.exp.ui.bottomnav;
 
 
-public interface StoryListener {
-    public void setStory(int pos);
+public interface BackListener {
+    public void getback();
 }

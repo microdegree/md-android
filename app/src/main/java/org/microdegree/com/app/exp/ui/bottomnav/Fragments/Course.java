@@ -13,6 +13,8 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.fragment.app.Fragment;
 
 import org.microdegree.com.app.exp.R;
+import org.microdegree.com.app.exp.ui.bottomnav.BackListener;
+import org.microdegree.com.app.exp.ui.home.stories.StoryListener;
 import org.microdegree.com.app.exp.utils.MicroFunctions;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
@@ -27,10 +29,15 @@ public class Course extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private BackListener listner;
     public Course() {
         // Required empty public constructor
     }
+
+    public Course(BackListener listner) {
+      this.listner=listner;
+    }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -70,7 +77,8 @@ public class Course extends Fragment {
         webSettings.setJavaScriptEnabled(true);
         String url ="https://courses.microdegree.work/enrollments";
         new MicroFunctions().launchWeb(url,getContext());
-        getActivity().onBackPressed();
+        listner.getback();
+       // getActivity().onBackPressed();
         return view;
 
 

@@ -10,11 +10,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -31,6 +33,10 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import org.microdegree.com.app.exp.R;
 import org.microdegree.com.app.exp.data.local.MySharedPreference;
 import org.microdegree.com.app.exp.impl.AppController;
+import org.microdegree.com.app.exp.ui.bottomnav.Fragments.Course;
+import org.microdegree.com.app.exp.ui.bottomnav.Fragments.Home;
+import org.microdegree.com.app.exp.ui.bottomnav.Fragments.More;
+import org.microdegree.com.app.exp.ui.bottomnav.Fragments.Search;
 import org.microdegree.com.app.exp.ui.course.coursedetail.CourseDetailActivity;
 import org.microdegree.com.app.exp.ui.intro.AppIntroActivity;
 import org.microdegree.com.app.exp.utils.MicroFunctions;
@@ -39,8 +45,8 @@ import java.util.Map;
 
 import io.sentry.Sentry;
 
-public class BottomNavigation extends AppCompatActivity {
-
+public class BottomNavigation extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, BackListener {
+    BottomNavigationView navigation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,25 +82,40 @@ public class BottomNavigation extends AppCompatActivity {
 
 
                 });
+//loading the default fragment
+        loadFragment(new Home());
+         navigation = findViewById(R.id.bottomNav_view);
+        //getting bottom navigation view and attaching the listener
+        navigation.setOnNavigationItemSelectedListener(this);
 
-        //Initialize Bottom Navigation View.
-        BottomNavigationView navView = findViewById(R.id.bottomNav_view);
 
-        //Pass the ID's of Different destinations
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_search, R.id.navigation_courses, R.id.navigation_more )
-                .build();
-        try{
-        //Initialize NavController.
-        NavController navController = Navigation.findNavController(this, R.id.navHostFragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
-        }catch (Exception e){
-            Sentry.captureMessage(String.valueOf(e));
-        }
+
+//        //Pass the ID's of Different destinations
+//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+//                R.id.navigation_home, R.id.navigation_search, R.id.navigation_courses, R.id.navigation_more )
+//                .build();
+//        try{
+//        //Initialize NavController.
+//        NavController navController = Navigation.findNavController(this, R.id.navHostFragment);
+////        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+//        NavigationUI.setupWithNavController(navView, navController);
+//        }catch (Exception e){
+//            Sentry.captureMessage(String.valueOf(e));
+//        }
         onNewIntent(getIntent()) ;
     }
 
+    private boolean loadFragment(Fragment fragment) {
+        //switching fragment
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
+    }
     public void onClickRefer(View view) {
         setWeb("https://pages.microdegree.work/rewards.html");
     }
@@ -155,5 +176,38 @@ public class BottomNavigation extends AppCompatActivity {
                 break;
             default:
         }
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment fragment = null;
+
+        switch (item.getItemId()) {
+            case R.id.navigation_home:
+                fragment = new Home();
+                break;
+
+            case R.id.navigation_search:
+                fragment = new Search();
+                break;
+
+            case R.id.navigation_courses:
+                fragment = new Course(BottomNavigation.this);
+                break;
+
+            case R.id.navigation_more:
+                fragment = new More();
+                break;
+        }
+
+        return loadFragment(fragment);
+    }
+
+    @Override
+    public void getback() {
+      //  Fragment fragment = new Home();
+        navigation.setSelectedItemId(R.id.navigation_home);
+       // loadFragment(fragment);
     }
 }

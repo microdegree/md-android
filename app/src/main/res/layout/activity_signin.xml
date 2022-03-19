@@ -137,6 +137,7 @@
                             android:layout_marginTop="3dp"
                             android:background="@null"
                             android:ems="10"
+                            android:digits="0123456789"
                             android:inputType="textNoSuggestions|number"
                             android:text="@={model.signIn.fields.mobile}"
                             app:error="@{model.signIn.mobileError}"

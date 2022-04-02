@@ -109,7 +109,6 @@ public class Overview extends Fragment {
             if(items.size()>0){
                 preRequisitiesView.setVisibility(View.VISIBLE);
             }
-
         });
         initPreRequisitis();
 

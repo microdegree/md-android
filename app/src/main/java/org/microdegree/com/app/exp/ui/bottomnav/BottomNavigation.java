@@ -37,6 +37,7 @@ import org.microdegree.com.app.exp.ui.bottomnav.Fragments.Course;
 import org.microdegree.com.app.exp.ui.bottomnav.Fragments.Home;
 import org.microdegree.com.app.exp.ui.bottomnav.Fragments.More;
 import org.microdegree.com.app.exp.ui.bottomnav.Fragments.Search;
+import org.microdegree.com.app.exp.ui.bottomnav.Fragments.Test;
 import org.microdegree.com.app.exp.ui.course.coursedetail.CourseDetailActivity;
 import org.microdegree.com.app.exp.ui.intro.AppIntroActivity;
 import org.microdegree.com.app.exp.utils.MicroFunctions;
@@ -83,11 +84,11 @@ public class BottomNavigation extends AppCompatActivity implements BottomNavigat
 
                 });
 //loading the default fragment
-        loadFragment(new Home());
+        //loadFragment(new Home());
          navigation = findViewById(R.id.bottomNav_view);
         //getting bottom navigation view and attaching the listener
         navigation.setOnNavigationItemSelectedListener(this);
-
+        navigation.setSelectedItemId(R.id.navigation_home);
 
 
 //        //Pass the ID's of Different destinations
@@ -179,26 +180,31 @@ public class BottomNavigation extends AppCompatActivity implements BottomNavigat
     }
 
 
+    Home firstFragment = new Home();
+    Search secondFragment = new Search();
+    Course thirdFragment = new Course(BottomNavigation.this);
+    More fourthFragment = new More();
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
 
         switch (item.getItemId()) {
             case R.id.navigation_home:
-                fragment = new Home();
+                fragment = firstFragment;
                 break;
 
             case R.id.navigation_search:
-                fragment = new Search();
+                fragment = secondFragment;
                 break;
 
             case R.id.navigation_courses:
-                fragment = new Course(BottomNavigation.this);
+                fragment =thirdFragment;
                 break;
 
             case R.id.navigation_more:
-                fragment = new More();
+                fragment = fourthFragment;
                 break;
+
         }
 
         return loadFragment(fragment);

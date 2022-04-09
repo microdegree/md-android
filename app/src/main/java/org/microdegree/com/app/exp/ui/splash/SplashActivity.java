@@ -44,7 +44,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true);
-        dataset();
         appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
         checkUpdate();
     }

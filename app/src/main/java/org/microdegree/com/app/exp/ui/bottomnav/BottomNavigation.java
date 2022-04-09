@@ -212,8 +212,8 @@ public class BottomNavigation extends AppCompatActivity implements BottomNavigat
 
     @Override
     public void getback() {
-      //  Fragment fragment = new Home();
+        Fragment fragment = new Home();
         navigation.setSelectedItemId(R.id.navigation_home);
-       // loadFragment(fragment);
+       loadFragment(fragment);
     }
 }

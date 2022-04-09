@@ -92,8 +92,11 @@ public class Why extends Fragment {
         initScope();
 
         whyViewModel = ViewModelProviders.of(this).get(WhyViewModel.class);
+        try {
+            whyViewModel.initFAQs(mCourseModel.getCourseId());
+        }catch (Exception e){
 
-        whyViewModel.initFAQs(mCourseModel.getCourseId());
+        }
 
         whyViewModel.getFAQModels().observe(getViewLifecycleOwner(), new Observer<List<CourseFaq>>() {
             @Override

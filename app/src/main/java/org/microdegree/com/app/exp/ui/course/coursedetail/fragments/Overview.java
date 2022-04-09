@@ -83,7 +83,11 @@ public class Overview extends Fragment {
 
         overViewModel = ViewModelProviders.of(this).get(OverViewModel.class);
 
-        overViewModel.initHeaders(mCourseModel.getCourseId());
+        try {
+            overViewModel.initHeaders(mCourseModel.getCourseId());
+        }catch (Exception e){
+
+        }
 
         overViewModel.getSubtitleModels().observe(getViewLifecycleOwner(), items -> {
             SubTitleArrowAdapter mAdapter = new SubTitleArrowAdapter(items);
